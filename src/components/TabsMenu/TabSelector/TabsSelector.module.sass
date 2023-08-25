@@ -1,0 +1,60 @@
+@import ../../../assets/sass/modules/_fonts
+@import ../../../assets/sass/modules/_colors
+
+.navTab
+  width: 100%
+  .tabSelector
+    display: -webkit-flex
+    display: flex
+    -webkit-flex-direction: row
+    flex-direction: row
+    width: 100%
+    justify-content: space-between
+    align-items: center
+    list-style: none
+    border: solid 1px #e1e6ec
+    background-color: $lightGray
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    flex-wrap: wrap
+    height: 50px
+    border-radius: 5px
+    &:hover
+      cursor: pointer
+
+    .tabItemSelector
+      -webkit-flex: 1
+      flex: 1
+      display: -webkit-flex
+      display: flex
+      height: 100%
+
+      .tabBtn
+        -webkit-flex: 1
+        flex: 1
+        display: grid
+        place-items: center
+        text-align: center
+        text-decoration: none
+        box-sizing: border-box
+        font-family: $fontFamilyBold
+        transition: all 0.4s
+        box-sizing: border-box
+        border: solid 1px transparent
+        transition: all 0.3s
+        display: flex
+        align-items: center
+        justify-content: center
+        gap: 0.5rem
+        flex-wrap: wrap
+
+      .tabSelected
+        box-shadow: 0 2px 3px 0 rgba(51, 61, 95, 0.1)
+        border: solid 1px $purple
+        background-color: #fff
+        border-radius: 5px
+        box-sizing: border-box
+        color: $purple
+        svg
+          stroke: $purple

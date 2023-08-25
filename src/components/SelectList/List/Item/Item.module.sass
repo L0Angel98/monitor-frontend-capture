@@ -1,0 +1,29 @@
+@import ../../../../assets/sass/modules/_colors
+
+.btnItem
+  width: 100%
+  height: 55px
+  flex-grow: 0
+  padding: 0 15px
+  border-radius: 5px
+  box-shadow: 0 2px 3px 0 rgba(51, 61, 95, 0.15)
+  background-color: #fff
+  border: 1px solid transparent
+  text-align: left
+  transition: all 0.3s
+  overflow: hidden
+  text-overflow: ellipsis
+  &:hover
+    cursor: pointer
+    border: 1px solid $purple
+    color: $purple
+
+.itemSelected
+  border: 1px solid $purple
+  color: $purple
+
+.item
+  list-style: none
+  width: 100%
+  padding: 1px
+  box-sizing: border-box

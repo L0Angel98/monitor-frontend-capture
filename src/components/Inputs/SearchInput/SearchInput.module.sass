@@ -1,0 +1,37 @@
+@import ../../../assets/sass/modules/_colors
+
+.containerInputSearch
+  width: 100%
+  height: 40px
+  border-radius: 5px
+  border: solid 1px #e1e6ec
+  background-color: #fff
+  box-sizing: border-box
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 0 1rem
+  .inputSearch
+    width: 100%
+    height: 100%
+    box-sizing: border-box
+    border: 0px
+    &::placeholder
+      color: #333d5f
+      opacity: 0.5
+
+  svg
+    width: 25px
+    opacity: 1
+    transition: all 0.5s
+
+  .hiddenIcon
+    width: 0
+    transform: scale(0.1)
+    opacity: 0
+
+.inputSearch:focus
+  outline: none
+
+.containerInputSearch:focus-within
+  outline: 1px solid $purple

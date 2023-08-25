@@ -1,0 +1,70 @@
+@import ../modules/_colors
+@import ../modules/_fonts
+
+%sizeFull
+  width: 100%
+  height: 100%
+
+%sizeWidthFull
+  width: 100%
+  height: auto
+
+%standarGap
+  gap: 1em
+
+%standarElementsGap
+  gap: 0.5em
+
+%alignCenterFlex
+  display: flex
+  align-items: center
+  &--center
+    @extend %alignCenterFlex
+    justify-items: center
+  &--start
+    @extend %alignCenterFlex
+    justify-items: flex-start
+
+%centerItemFlex
+  @extend %alignCenterFlex
+  justify-content: center
+
+%justifyTopFlex
+  @extend %alignCenterFlex
+  justify-items: flex-start
+
+%centerListItems
+  @extend %justifyTopFlex
+  @extend %standarGap
+  flex-direction: column
+  &--middleGap
+    @extend %centerListItems
+    @extend %standarElementsGap
+
+//align container
+
+%alignItemsColumnFlex
+  @extend %alignCenterFlex
+  @extend %standarGap
+  margin: 0.5em 0
+  flex-direction: column
+  width: 100%
+  &--center
+    @extend %alignItemsColumnFlex
+    justify-content: center
+
+//-------Texts------
+
+// style general text
+%generalText
+  color: $darkBlue
+  font-family: $fontFamilyRegular
+  &--normal
+    @extend %generalText
+    font-size: $sizeNormal
+  &--small
+    @extend %generalText
+    font-size: $sizeSmall
+  &--large
+    @extend %generalText
+    font-size: $sizeLarge

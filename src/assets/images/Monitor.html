@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://localhost:8008/select-parts/2/secondary -->
+<html lang="en"><div id="twoseven-scripts" data-info="Scripts added by TwoSeven extension" style="display: none !important; position: static !important; top: 0px !important; left: 0px !important; width: 0px !important; height: 0px !important;"><script type="text/javascript" id="__tmpScript-750800255" data-added-by-two-seven="1">(function() {
+        window.twoseven = window.twoseven || {};
+      })();</script><script type="text/javascript" id="__tmpScript-536985445" data-added-by-two-seven="1">(function() {
+        window.twoseven.waitForDOMNode = async function t(e,t=document){e=e||{};const{type:n,value:o}=e;if(!n||!o)throw new Error("Must specify identifier");let s=o;switch(n){case"tag":s=o.toUpperCase()}if("check"!==n){const e=i({type:"selector",value:s},[],t);if(e)return new Promise(t=>t(e))}function i({type:e,value:t},n,o){let s;switch(e){case"tag":s=n.find(e=>e.tagName===t);break;case"selector":s=o.querySelector(t)}return s}async function a({type:e,value:t},n,o){let s;switch(e){case"tag":s=n.find(e=>e.tagName===t);break;case"selector":s=o.querySelector(t);break;case"check":for(const e of n){if(await t(e))return e}}return s}return new Promise((e,o)=>{const r=new MutationObserver(async o=>{for(const w of o)if("childList"===w.type){const o=Array.from(w.addedNodes);let d;if(d="check"===n?await a({type:n,value:s},o,t):await i({type:n,value:s},o,t))return r.disconnect(),e(d)}});r.observe(t,{childList:!0,subtree:!0})})};
+      })();</script><script type="text/javascript" id="__tmpScript-262437825" data-added-by-two-seven="1">(function() {
+        
+    window.twoseven.reportError = function n(e,t,n){"string"==typeof(n=n||{})&&(n={message:n});const{message:o,stack:s}=t;Object.assign(n,{tag:e,error:{message:o,stack:s}}),window.tsExtGetPostToParent()({name:name,tag:e,action:"report-error",json:n}),console.error(JSON.stringify(n.error))}
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-721721225" data-added-by-two-seven="1">(function() {
+        
+    window.twosevenHmsToSecondsOnly = function(str) {
+        var p = str.split(':'),
+            s = 0, m = 1;
+
+        while (p.length > 0) {
+            s += m * parseInt(p.pop(), 10);
+            m *= 60;
+        }
+
+        return s;
+    }
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-433715055" data-added-by-two-seven="1">(function() {
+        window.twosevenExtLog = function(e,o,c){o||(o=e,e=void 0);let n=c||"black";if(c)switch(c){case"success":n="Green";break;case"info":n="DodgerBlue";break;case"error":n="Red";break;case"warning":n="Orange";break;default:n=c}e?console.log("%c"+e+": "+o,`color:${n}`):console.log("%c"+o,`color:${n}`)};
+      })();</script><script type="text/javascript" id="__tmpScript-778630741" data-added-by-two-seven="1">(function() {
+        
+    document.twosevenGET = function(url, callback) {
+      var xmlhttp = new XMLHttpRequest();
+
+      xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+          if (xmlhttp.status == 200) {
+            callback(null, xmlhttp.responseText);
+          } else {
+            callback('something else other than 200 was returned', '');
+          }
+        }
+      };
+      xmlhttp.open("GET", url, true);
+      xmlhttp.send();
+    };
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-701471222" data-added-by-two-seven="1">(function() {
+        
+    window.triggerEvent = function(e,t,n,o=!1){let s;o?(n&&"string"!=typeof n&&(n=JSON.stringify(n)),s=n):s={data:n},window.twosevenScriptsDiv&&n&&"object"==typeof n&&(console.warn(`WARNING: Attempting to send an object via event.detail from CS->Page does not work on Firefox: ${JSON.stringify(n)}`),console.error((new Error).stack));const i=new CustomEvent(t,{bubbles:!0,composed:!0,detail:s});e.dispatchEvent(i)}
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-84400222" data-added-by-two-seven="1">(function() {
+        window.twoseven.postTo = async function o(e,t,n=!1){let o;return t.name=t.name||name,o=n?new Promise(e=>{const n=`ack-${t.action}-${1e9*Math.random()|0}`;t.ack={event:n};window.debug&&["play","pause","currentTime"].some(e=>t.action.includes(e)),window.addEventListener("message",function t({data:o={}}){o.action===n&&(window.removeEventListener("message",t),e(o.json))})}):new Promise(e=>e()),e.postMessage(t,"*"),o};
+      })();</script><script type="text/javascript" id="__tmpScript-51563581" data-added-by-two-seven="1">(function() {
+        window.tsExtGetPostTo = function s(){return window.twoseven&&window.twoseven.postTo||window.postTo};
+      })();</script><script type="text/javascript" id="__tmpScript-751478534" data-added-by-two-seven="1">(function() {
+        window.tsExtGetPostToParent = function i(){return window.twoseven&&window.twoseven.postToParent||window.postToParent};
+      })();</script><script type="text/javascript" id="__tmpScript-11003590" data-added-by-two-seven="1">(function() {
+        window.twoseven.postResponse = async function a(e,t){const{source:n,data:{ack:{event:o}}}=e;window.tsExtGetPostTo()(n,{action:o,json:t})};
+      })();</script><script type="text/javascript" id="__tmpScript-468320334" data-added-by-two-seven="1">(function() {
+        window.postResponse = async function a(e,t){const{source:n,data:{ack:{event:o}}}=e;window.tsExtGetPostTo()(n,{action:o,json:t})};
+      })();</script><script type="text/javascript" id="__tmpScript-884231518" data-added-by-two-seven="1">(function() {
+        window.twoseven.postToParent = async function r(e,t=!1){return window.tsExtGetPostTo()(window.parent,e,t)};
+      })();</script><script type="text/javascript" id="__tmpScript-988198567" data-added-by-two-seven="1">(function() {
+        window.twoseven.postToTop = async function w(e,t=!1){return window.tsExtGetPostTo()(window.top,e,t)};
+      })();</script><script type="text/javascript" id="__tmpScript-530591440" data-added-by-two-seven="1">(function() {
+        window.postToTop = async function w(e,t=!1){return window.tsExtGetPostTo()(window.top,e,t)};
+      })();</script><script type="text/javascript" id="__tmpScript-118979739" data-added-by-two-seven="1">(function() {
+        
+    window.twoseven.getFromStorage = e=>new Promise((t,n)=>{const o="get-from-storage-"+(1e9*Math.random()|0);window.addEventListener(o,e=>{window.removeEventListener(o,this);const{detail:{data:{value:n}}}=e;t(n)}),triggerEvent(window,"get-from-storage",{key:e,evt:o})})
+    window.twoseven.saveToStorage = e=>{triggerEvent(window,"save-to-storage",e)}
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-230334477" data-added-by-two-seven="1">(function() {
+        
+    window.attachHistoryListeners = function d(){const e=history.pushState;history.pushState=function(t,n,o){return"function"==typeof history.onpushstate&&history.onpushstate({state:t}),triggerEvent(window,"pushstate",{uri:o}),e.apply(history,arguments)};const t=history.replaceState;history.replaceState=function(e){return"function"==typeof history.onreplacestate&&history.onreplacestate({state:e}),t.apply(history,arguments)}}
+    window.attachHistoryListeners()
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-978478773" data-added-by-two-seven="1">(function() {
+        window.twoseven.once = function c(e,t,n){e.addEventListener(t,function o(s){e.removeEventListener(t,o),n(s)})};
+      })();</script><script type="text/javascript" id="__tmpScript-770294668" data-added-by-two-seven="1">(function() {
+        window.nextTick = function v(){return new Promise(e=>setTimeout(e,0))};
+      })();</script><script type="text/javascript" id="__tmpScript-833477367" data-added-by-two-seven="1">(function() {
+        
+    window.twoseven.isOnTwoSevenTab = async () => {
+      const result = await window.twoseven.postTo(window, { action: 'is-on-twoseven-tab' }, true)
+      return result
+    }
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-563158214" data-added-by-two-seven="1">(function() {
+        
+    window.twoseven.isPaused = async () => {
+      const result = await window.twoseven.postTo(window, { action: 'twoseven:pause-state' }, true)
+      return result
+    }
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-549046729" data-added-by-two-seven="1">(function() {
+        window.twoseven.waitForProp = function u(e,t,n){return new Promise(o=>{if(e[t])return void o();const s=setInterval(()=>{e[t]&&(clearInterval(s),o())},n)})};
+      })();</script><script type="text/javascript" id="__tmpScript-542075942" data-added-by-two-seven="1">(function() {
+        window.twoseven.overrideMethod = function p(e,t,n){const o=e[t].bind(e);e[t]=async function(...e){return await n(...e),o(...e)}};
+      })();</script><script type="text/javascript" id="__tmpScript-5149367" data-added-by-two-seven="1">(function() {
+        window.twoseven.waitForVideoTimeUpdate = function g(e,t=3){return new Promise(n=>{let o=0;const s=()=>{++o===t&&(e.removeEventListener("timeupdate",s),n())};e.addEventListener("timeupdate",s)})};
+      })();</script><script type="text/javascript" id="__tmpScript-324821692" data-added-by-two-seven="1">(function() {
+        window.twoseven.waitForVideoReadyState = function l(e,t,n=30){return t(e.readyState)?Promise.resolve():new Promise(o=>{const s=setInterval(()=>{t(e.readyState)&&(clearInterval(s),o())},n)})};
+      })();</script><script type="text/javascript" id="__tmpScript-283329976" data-added-by-two-seven="1">(function() {
+        window.twoseven.waitForVideoToHaveFutureData = function m(e,...t){return window.twoseven.waitForVideoReadyState(e,e=>e>=3,...t)};
+      })();</script><script type="text/javascript" id="__tmpScript-925197954" data-added-by-two-seven="1">(function() {
+        window.twoseven.waitForSameSiteCookies = function f(){return window.twoseven.waitForProp(window.twoseven,"__cookiesUpdated")};
+      })();</script><script type="text/javascript" id="__tmpScript-714784008" data-added-by-two-seven="1">(function() {
+        window.twoseven = window.twoseven || {};
+      })();</script><script type="text/javascript" id="__tmpScript-54797200" data-added-by-two-seven="1">(function() {
+        window.twoseven.waitForDOMNode = async function t(e,t=document){e=e||{};const{type:n,value:o}=e;if(!n||!o)throw new Error("Must specify identifier");let s=o;switch(n){case"tag":s=o.toUpperCase()}if("check"!==n){const e=i({type:"selector",value:s},[],t);if(e)return new Promise(t=>t(e))}function i({type:e,value:t},n,o){let s;switch(e){case"tag":s=n.find(e=>e.tagName===t);break;case"selector":s=o.querySelector(t)}return s}async function a({type:e,value:t},n,o){let s;switch(e){case"tag":s=n.find(e=>e.tagName===t);break;case"selector":s=o.querySelector(t);break;case"check":for(const e of n){if(await t(e))return e}}return s}return new Promise((e,o)=>{const r=new MutationObserver(async o=>{for(const w of o)if("childList"===w.type){const o=Array.from(w.addedNodes);let d;if(d="check"===n?await a({type:n,value:s},o,t):await i({type:n,value:s},o,t))return r.disconnect(),e(d)}});r.observe(t,{childList:!0,subtree:!0})})};
+      })();</script><script type="text/javascript" id="__tmpScript-316629995" data-added-by-two-seven="1">(function() {
+        
+    window.twoseven.reportError = function n(e,t,n){"string"==typeof(n=n||{})&&(n={message:n});const{message:o,stack:s}=t;Object.assign(n,{tag:e,error:{message:o,stack:s}}),window.tsExtGetPostToParent()({name:name,tag:e,action:"report-error",json:n}),console.error(JSON.stringify(n.error))}
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-815408058" data-added-by-two-seven="1">(function() {
+        
+    window.twosevenHmsToSecondsOnly = function(str) {
+        var p = str.split(':'),
+            s = 0, m = 1;
+
+        while (p.length > 0) {
+            s += m * parseInt(p.pop(), 10);
+            m *= 60;
+        }
+
+        return s;
+    }
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-450528496" data-added-by-two-seven="1">(function() {
+        window.twosevenExtLog = function(e,o,c){o||(o=e,e=void 0);let n=c||"black";if(c)switch(c){case"success":n="Green";break;case"info":n="DodgerBlue";break;case"error":n="Red";break;case"warning":n="Orange";break;default:n=c}e?console.log("%c"+e+": "+o,`color:${n}`):console.log("%c"+o,`color:${n}`)};
+      })();</script><script type="text/javascript" id="__tmpScript-484861716" data-added-by-two-seven="1">(function() {
+        
+    document.twosevenGET = function(url, callback) {
+      var xmlhttp = new XMLHttpRequest();
+
+      xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+          if (xmlhttp.status == 200) {
+            callback(null, xmlhttp.responseText);
+          } else {
+            callback('something else other than 200 was returned', '');
+          }
+        }
+      };
+      xmlhttp.open("GET", url, true);
+      xmlhttp.send();
+    };
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-93180548" data-added-by-two-seven="1">(function() {
+        
+    window.triggerEvent = function(e,t,n,o=!1){let s;o?(n&&"string"!=typeof n&&(n=JSON.stringify(n)),s=n):s={data:n},window.twosevenScriptsDiv&&n&&"object"==typeof n&&(console.warn(`WARNING: Attempting to send an object via event.detail from CS->Page does not work on Firefox: ${JSON.stringify(n)}`),console.error((new Error).stack));const i=new CustomEvent(t,{bubbles:!0,composed:!0,detail:s});e.dispatchEvent(i)}
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-198121827" data-added-by-two-seven="1">(function() {
+        window.twoseven.postTo = async function o(e,t,n=!1){let o;return t.name=t.name||name,o=n?new Promise(e=>{const n=`ack-${t.action}-${1e9*Math.random()|0}`;t.ack={event:n};window.debug&&["play","pause","currentTime"].some(e=>t.action.includes(e)),window.addEventListener("message",function t({data:o={}}){o.action===n&&(window.removeEventListener("message",t),e(o.json))})}):new Promise(e=>e()),e.postMessage(t,"*"),o};
+      })();</script><script type="text/javascript" id="__tmpScript-690675209" data-added-by-two-seven="1">(function() {
+        window.tsExtGetPostTo = function s(){return window.twoseven&&window.twoseven.postTo||window.postTo};
+      })();</script><script type="text/javascript" id="__tmpScript-401752339" data-added-by-two-seven="1">(function() {
+        window.tsExtGetPostToParent = function i(){return window.twoseven&&window.twoseven.postToParent||window.postToParent};
+      })();</script><script type="text/javascript" id="__tmpScript-226190201" data-added-by-two-seven="1">(function() {
+        window.twoseven.postResponse = async function a(e,t){const{source:n,data:{ack:{event:o}}}=e;window.tsExtGetPostTo()(n,{action:o,json:t})};
+      })();</script><script type="text/javascript" id="__tmpScript-271453273" data-added-by-two-seven="1">(function() {
+        window.postResponse = async function a(e,t){const{source:n,data:{ack:{event:o}}}=e;window.tsExtGetPostTo()(n,{action:o,json:t})};
+      })();</script><script type="text/javascript" id="__tmpScript-907186935" data-added-by-two-seven="1">(function() {
+        window.twoseven.postToParent = async function r(e,t=!1){return window.tsExtGetPostTo()(window.parent,e,t)};
+      })();</script><script type="text/javascript" id="__tmpScript-492981055" data-added-by-two-seven="1">(function() {
+        window.twoseven.postToTop = async function w(e,t=!1){return window.tsExtGetPostTo()(window.top,e,t)};
+      })();</script><script type="text/javascript" id="__tmpScript-555350791" data-added-by-two-seven="1">(function() {
+        window.postToTop = async function w(e,t=!1){return window.tsExtGetPostTo()(window.top,e,t)};
+      })();</script><script type="text/javascript" id="__tmpScript-220563147" data-added-by-two-seven="1">(function() {
+        
+    window.twoseven.getFromStorage = e=>new Promise((t,n)=>{const o="get-from-storage-"+(1e9*Math.random()|0);window.addEventListener(o,e=>{window.removeEventListener(o,this);const{detail:{data:{value:n}}}=e;t(n)}),triggerEvent(window,"get-from-storage",{key:e,evt:o})})
+    window.twoseven.saveToStorage = e=>{triggerEvent(window,"save-to-storage",e)}
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-25158725" data-added-by-two-seven="1">(function() {
+        
+    window.attachHistoryListeners = function d(){const e=history.pushState;history.pushState=function(t,n,o){return"function"==typeof history.onpushstate&&history.onpushstate({state:t}),triggerEvent(window,"pushstate",{uri:o}),e.apply(history,arguments)};const t=history.replaceState;history.replaceState=function(e){return"function"==typeof history.onreplacestate&&history.onreplacestate({state:e}),t.apply(history,arguments)}}
+    window.attachHistoryListeners()
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-712975207" data-added-by-two-seven="1">(function() {
+        window.twoseven.once = function c(e,t,n){e.addEventListener(t,function o(s){e.removeEventListener(t,o),n(s)})};
+      })();</script><script type="text/javascript" id="__tmpScript-363804927" data-added-by-two-seven="1">(function() {
+        window.nextTick = function v(){return new Promise(e=>setTimeout(e,0))};
+      })();</script><script type="text/javascript" id="__tmpScript-221479633" data-added-by-two-seven="1">(function() {
+        
+    window.twoseven.isOnTwoSevenTab = async () => {
+      const result = await window.twoseven.postTo(window, { action: 'is-on-twoseven-tab' }, true)
+      return result
+    }
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-835860334" data-added-by-two-seven="1">(function() {
+        
+    window.twoseven.isPaused = async () => {
+      const result = await window.twoseven.postTo(window, { action: 'twoseven:pause-state' }, true)
+      return result
+    }
+  ;
+      })();</script><script type="text/javascript" id="__tmpScript-622342282" data-added-by-two-seven="1">(function() {
+        window.twoseven.waitForProp = function u(e,t,n){return new Promise(o=>{if(e[t])return void o();const s=setInterval(()=>{e[t]&&(clearInterval(s),o())},n)})};
+      })();</script><script type="text/javascript" id="__tmpScript-492164995" data-added-by-two-seven="1">(function() {
+        window.twoseven.overrideMethod = function p(e,t,n){const o=e[t].bind(e);e[t]=async function(...e){return await n(...e),o(...e)}};
+      })();</script><script type="text/javascript" id="__tmpScript-242549164" data-added-by-two-seven="1">(function() {
+        window.twoseven.waitForVideoTimeUpdate = function g(e,t=3){return new Promise(n=>{let o=0;const s=()=>{++o===t&&(e.removeEventListener("timeupdate",s),n())};e.addEventListener("timeupdate",s)})};
+      })();</script><script type="text/javascript" id="__tmpScript-520050022" data-added-by-two-seven="1">(function() {
+        window.twoseven.waitForVideoReadyState = function l(e,t,n=30){return t(e.readyState)?Promise.resolve():new Promise(o=>{const s=setInterval(()=>{t(e.readyState)&&(clearInterval(s),o())},n)})};
+      })();</script><script type="text/javascript" id="__tmpScript-740592005" data-added-by-two-seven="1">(function() {
+        window.twoseven.waitForVideoToHaveFutureData = function m(e,...t){return window.twoseven.waitForVideoReadyState(e,e=>e>=3,...t)};
+      })();</script><script type="text/javascript" id="__tmpScript-299439126" data-added-by-two-seven="1">(function() {
+        window.twoseven.waitForSameSiteCookies = function f(){return window.twoseven.waitForProp(window.twoseven,"__cookiesUpdated")};
+      })();</script><script type="text/javascript" id="__tmpScript-118623844" data-added-by-two-seven="1">(function() {
+        
+      const modal = document.querySelector('.twoseven-ext-tab-media-modal')
+      const modalCloseBtn = modal.querySelector('.close')
+      function closeModal () {
+        modal.style.display = 'none'
+        const frame = document.querySelector('#twoseven-ext-tab-media-iframe').contentWindow
+        frame.postMessage({
+          __evt_name: 'modal-hide'
+        }, '*')
+      }
+      modalCloseBtn.onclick = closeModal
+
+      window.onmessage = function (e) {
+        if (e.data.__evt_name === 'modal-hide') {
+          closeModal()
+        }
+      }
+
+      window.twoseven.closeTabMediaModal = closeModal
+
+      window.onclick = function (e) {
+        if (e.target.id === 'twoseven-ext-tab-media-modal' && modal.style.display === 'block') {
+            closeModal()
+        }
+      }
+    ;
+      })();</script></div><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monitor</title>
+<link rel="icon" href="http://localhost:8008/logo-monitor.svg?dd823f126486c28e84b8"><link href="./Monitor_files/main.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="./Monitor_files/src_pages_Login_Login_jsx.css"><link href="chrome-extension://cjdnfmjmdligcpfcekfmenlhiopehjkd/web_resources/modal/modal.css" rel="stylesheet" id="__tmpStyle"></head>
+<body>
+  <div id="root"><div><header class="ijii5_e4Nr4DEKFiw4JO"><section id="user-info"><svg width="25px" height="25px" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2px"><path d="M22.537 11.743c0 5.933-4.81 10.743-10.745 10.743S1.047 17.676 1.047 11.743C1.047 5.81 5.857 1 11.792 1c5.934 0 10.745 4.81 10.745 10.743z" stroke="#7D80DA" stroke-width="2"></path><path d="M15.049 9.5a3.5 3.5 0 1 1-7.001 0 3.5 3.5 0 0 1 7 0zm-11.002 10c.5-1.833 2.7-5.5 7.501-5.5s7.168 3.667 7.502 5.5" stroke="#7D80DA" stroke-width="2"></path></svg><span>Usuario 3</span></section><section class="FmGL4y20aLzSHCX5_zqT undefined"><svg width="25px" height="25px" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2px"><path d="M4.602 7.666V19h12.987V7.666" stroke="#7D80DA" stroke-width="2"></path><path d="M1 10.5 11.102 2l10.101 8.5" stroke="#7D80DA" stroke-width="2" stroke-linecap="round"></path></svg>Alias Estación 4</section><section class="XeUP49E78mU6ZQwwIXCE">12:28 pm</section><section class="zeYASZsYd9ZC1tCJNJja">Thursday 03 August 2023</section><section class="AihqshoxpetEsv2aGULT"><button class="BbT3YKw6rJ_TKNYMpu6E"><label class="jNTDrPFldYyAUkPg07As"><svg width="25px" height="25px" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2px"><path d="m19.492 9 3.057 4-3.057 4M17 3H5a1 1 0 0 0-1 1v17.5a1 1 0 0 0 1 1h12M11 13h10" stroke="#7D80DA" stroke-width="2" stroke-linecap="round"></path></svg>Salir del sistema</label></button></section></header><div class="batlME3JNtmCaX39Px_f"><section class="UnOJMrqjlvcAqMYVTwA9" id="main-content"><div class="aHeeYWLH4C9uM_Y_yxKA"><div class="mBhycLE74aDuWbF068T3"><div class="M5NyR_ou4oZt_hdSAcHc"><nav class="JJP00Akd5LhGPev_Nrep" data-testid="tab-selector"><ul class="O2QOkAuTE3VrLak_2UDO"><li class="wvD7Z9CRllFv8VRUIfTy"><a id="1" class="zu5PqYeunCq_bX0JYZwL false" href="http://localhost:8008/select-parts/1"><svg width="44" height="25" stroke="#333D5F" fill="none" xmlns="http://www.w3.org/2000/svg" class="I4K2JERuQ2BObXUDrQjS WPLUclwYqrbsr6js5EF7"><path d="m31.782 1.443 8.636 4.987a1 1 0 0 1 .5.866v9.972a1 1 0 0 1-.5.866l-8.636 4.986a1 1 0 0 1-1 0l-8.637-4.986a1 1 0 0 1-.5-.866V7.296a1 1 0 0 1 .5-.866l8.637-4.987a1 1 0 0 1 1 0z" stroke-width="2"></path><circle cx="31.114" cy="12.282" r="2.685" stroke-width="2"></circle><path d="m12.782 1.443 8.636 4.987a1 1 0 0 1 .5.866v9.972a1 1 0 0 1-.5.866l-8.636 4.986a1 1 0 0 1-1 0l-8.637-4.986a1 1 0 0 1-.5-.866V7.296a1 1 0 0 1 .5-.866l8.637-4.987a1 1 0 0 1 1 0z" stroke-width="2"></path><circle cx="12.278" cy="12.282" r="2.685" stroke-width="2"></circle></svg>Trabajar una parte</a></li><li class="wvD7Z9CRllFv8VRUIfTy"><a id="2" aria-current="page" class="zu5PqYeunCq_bX0JYZwL ysnfFQ2iu6TVZsOY5Hn2 active" href="http://localhost:8008/select-parts/2"><svg width="44" height="25" stroke="#333D5F" fill="none" xmlns="http://www.w3.org/2000/svg" class="false WPLUclwYqrbsr6js5EF7"><path d="m31.782 1.443 8.636 4.987a1 1 0 0 1 .5.866v9.972a1 1 0 0 1-.5.866l-8.636 4.986a1 1 0 0 1-1 0l-8.637-4.986a1 1 0 0 1-.5-.866V7.296a1 1 0 0 1 .5-.866l8.637-4.987a1 1 0 0 1 1 0z" stroke-width="2"></path><circle cx="31.114" cy="12.282" r="2.685" stroke-width="2"></circle><path d="m12.782 1.443 8.636 4.987a1 1 0 0 1 .5.866v9.972a1 1 0 0 1-.5.866l-8.636 4.986a1 1 0 0 1-1 0l-8.637-4.986a1 1 0 0 1-.5-.866V7.296a1 1 0 0 1 .5-.866l8.637-4.987a1 1 0 0 1 1 0z" stroke-width="2"></path><circle cx="12.278" cy="12.282" r="2.685" stroke-width="2"></circle></svg>Trabajar dos partes</a></li></ul></nav><div class="Z4Eb1fkw3c38heUg0CrV"><div class="gC3LzsI8QDhLN5odoaDF"><div class="gFiP9d6xoTIVXSMd1dw7"><div class="M5NyR_ou4oZt_hdSAcHc"><nav class="JJP00Akd5LhGPev_Nrep" data-testid="tab-selector"><ul class="O2QOkAuTE3VrLak_2UDO"><li class="wvD7Z9CRllFv8VRUIfTy"><a id="main" class="zu5PqYeunCq_bX0JYZwL false" href="http://localhost:8008/select-parts/2/main">Seleccionar primera orden y parte</a></li><li class="wvD7Z9CRllFv8VRUIfTy"><a id="secondary" aria-current="page" class="zu5PqYeunCq_bX0JYZwL ysnfFQ2iu6TVZsOY5Hn2 active" href="http://localhost:8008/select-parts/2/secondary">Seleccionar segunda orden y parte</a></li></ul></nav><div class="Z4Eb1fkw3c38heUg0CrV"><div class="gC3LzsI8QDhLN5odoaDF"><div class="kfqtwTwRZInbMiATgKf0"><section class="NUpArskOPacw65Nytjxs"><div class="BGfY1QoBGwIHod8j00nA"><div class="sSWh0pm8HtwCulvJX0i5 undefined"><svg width="25px" height="25px" stroke="#7d80da" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8.233" cy="8.233" r="7.233" stroke-width="2"></circle><path d="M18.29 19.707a1 1 0 1 0 1.415-1.414l-1.415 1.414zm-6.333-6.333 6.333 6.333 1.415-1.414-6.334-6.333-1.414 1.414z" fill="#7D80DA"></path></svg><input placeholder="Buscar orden" class="vILWTfhz_gTcoc3MNTdT" type="text"></div><button class="wJdGVhP6ctyUjklmNaI9 iVEjuwsmov4grkNbRLdj "><svg width="22" height="17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1v14.592M9 1v14.592M17 1v14.592M13 1v14.592M5 1.072v14.592M21 1v14.592" stroke="#7D80DA" stroke-width="2" stroke-linecap="round"></path></svg>Escanear orden</button></div><div class="u0feDgXJeZ8ADqNSXuxf"><h6 class="ga8rQsXHFKI4E_xnCWhn">Seleccionar order</h6><div class="GGDB1Oy0RX1V0LfuXPVO"><ul class="sdEJMLlq5Z5dzGMM6GtO"><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 1 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 2 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 3 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 4 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 5 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 6 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 7 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 8 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 9 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 10 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 11 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 12 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 13 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 14 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 15 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 16 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 17 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 18 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 19 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 20 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 21 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 22 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 23 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 24 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 25 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 26 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 27 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 28 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 29 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">OF 30 1234359847596845</button></li></ul></div></div></section><section class="NUpArskOPacw65Nytjxs"><div class="BGfY1QoBGwIHod8j00nA"><div class="sSWh0pm8HtwCulvJX0i5 undefined"><svg width="25px" height="25px" stroke="#7d80da" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8.233" cy="8.233" r="7.233" stroke-width="2"></circle><path d="M18.29 19.707a1 1 0 1 0 1.415-1.414l-1.415 1.414zm-6.333-6.333 6.333 6.333 1.415-1.414-6.334-6.333-1.414 1.414z" fill="#7D80DA"></path></svg><input placeholder="Buscar parte" class="vILWTfhz_gTcoc3MNTdT" type="text"></div><button class="wJdGVhP6ctyUjklmNaI9 iVEjuwsmov4grkNbRLdj "><svg width="22" height="17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1v14.592M9 1v14.592M17 1v14.592M13 1v14.592M5 1.072v14.592M21 1v14.592" stroke="#7D80DA" stroke-width="2" stroke-linecap="round"></path></svg>Escanear parte</button></div><div class="u0feDgXJeZ8ADqNSXuxf"><h6 class="ga8rQsXHFKI4E_xnCWhn">Seleccionar parte</h6><div class="GGDB1Oy0RX1V0LfuXPVO"><ul class="sdEJMLlq5Z5dzGMM6GtO"><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 1 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 2 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 3 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 4 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 5 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 6 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 7 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 8 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 9 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 10 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 11 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 12 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 13 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 14 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 15 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 16 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 17 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 18 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 19 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 20 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 21 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 22 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 23 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 24 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 25 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 26 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 27 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 28 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 29 1234359847596845</button></li><li class="LTIlu74Y4mseIePvqhAj"><button class="d5pPKVeMfFMgwxNnIxuv false">Part 30 1234359847596845</button></li></ul></div></div></section></div></div></div></div></div></div></div></div></div></div></section></div></div></div>
+
+<script defer="" src="./Monitor_files/vendor.bundle.js"></script><script defer="" src="./Monitor_files/main.bundle.js"></script>
+<div>
+    <div id="twoseven-ext-tab-media-modal" class="twoseven-ext-tab-media-modal" style="display: none;">
+      <!-- Modal content -->
+      <div class="twoseven-ext-tab-media-modal-content">
+        <div class="iframe-container" style="height: 100%; width: 100%;">
+          <span class="close">×</span>
+        </div>
+      </div>
+    </div></div></body></html>

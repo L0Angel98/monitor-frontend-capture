@@ -1,0 +1,147 @@
+@import ../../assets/sass/modules/_colors
+@import ../../assets/sass/modules/_fonts
+
+@mixin barLogo($heigh, $color)
+  display: block
+  height: $heigh
+  width: 50px
+  background-color: $color
+  border-radius: 5px
+
+.backgroundModal
+  position: fixed
+  background-color: #000000A5
+  height: 100vh
+  width: 100vw
+  display: grid
+  place-items: center
+  top: 0
+  left: 0
+  z-index: 50
+
+.containerLogo
+  display: flex
+  align-items: flex-end
+  gap: 10px
+  height: 100px
+
+.bar1
+  @include barLogo($heigh: 60% , $color: $green )
+  -webkit-animation: bar1 1s 0.2s infinite
+  -moz-animation: bar1 1s 0.2s infinite
+  animation: bar1 1s 0.2s infinite
+  animation-direction: alternate
+
+.bar2
+  @include barLogo($heigh: 80% , $color: $pink )
+  -webkit-animation: bar2 1s 0.4s infinite
+  -moz-animation: bar2 1s 0.4s infinite
+  animation: bar2 1s 0.4s infinite
+  animation-direction: alternate
+
+.bar3
+  @include barLogo($heigh: 100% , $color: $blue )
+  -webkit-animation: bar3 1s 0.6s infinite
+  -moz-animation: bar3 1s 0.6s infinite
+  animation: bar3 1s 0.6s infinite
+  animation-direction: alternate
+
+@keyframes bar1
+  from
+    height: 5px
+  to
+    height: 60%
+
+@keyframes bar2
+  from
+    height: 5px
+  to
+    height: 80%
+
+@keyframes bar3
+  from
+    height: 5px
+  to
+    height: 100%
+
+//styles modal confirmation footer
+.modalConfirmationFooter
+  width: 100%
+  height: 130px
+  border-radius: 5px
+  box-shadow: 0 -3px 3px 0 rgba(51, 61, 95, 0.1)
+  border: solid 1px #e1e6ec
+  background-color: #fff
+  display: flex
+  position: fixed
+  bottom: 0
+  left: 0
+  z-index: 2
+  padding: 0 1.5rem
+  box-sizing: border-box
+  align-items: center
+  animation: slideFromBottom 0.5s
+  flex-wrap: wrap
+  gap: 0.5rem
+  .message
+    flex-grow: 1
+    flex-shrink: 1
+    flex-basis: auto
+    font-family: $fontFamilyBold
+  .btnsSections
+    flex-shrink: 1
+    flex-basis: auto
+    display: flex
+    gap: 2rem
+    flex-wrap: wrap
+    .btnModalConfirm
+      padding: 0.5em 4rem
+      box-shadow: 0 3px 4px 0 rgba(51, 61, 95, 0.15)
+      transition: transform 0.5s
+      &:hover
+        transform: scale(1.1)
+
+.containerError
+  background-color: #fff
+  border-radius: 5px
+  height: 400px
+  width: 300px
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  padding: 2rem
+  box-sizing: border-box
+  gap: 1rem
+  .title
+    font-family: $fontFamilyBold
+    margin: 0
+    padding: 0
+  .content
+    position: relative
+    flex-grow: 1
+    width: 100%
+    overflow-y: auto
+    .messagesList
+      margin: 0
+      padding: 0
+      list-style: none
+      display: flex
+      flex-direction: column
+      gap: 0.5rem
+      position: absolute
+      height: 100%
+      width: 100%
+      .message
+        width: 100%
+        text-align: center
+
+@media screen and ( max-width: 608px  )
+  .modalConfirmationFooter
+    height: 200px
+
+@keyframes slideFromBottom
+  from
+    transform: translateY(100%)
+  to
+    transform: translateY(0%)

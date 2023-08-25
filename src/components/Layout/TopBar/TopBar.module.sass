@@ -1,0 +1,80 @@
+@import ../../../assets/sass/modules/_fonts
+@import ../../../assets/sass/modules/_colors
+
+%section
+  flex-grow: 1
+  flex-shrink: 1
+  flex-basis: auto
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: 0.5rem
+  height: 100%
+  box-sizing: border-box
+  padding: 0 10px
+  height: 50px
+  a
+    text-decoration: none
+
+.topBar
+  border: solid 1px #e1e6ec
+  background-color: #fff
+  //height: 50px
+  display: flex
+  justify-content: space-between
+  align-items: center
+  box-sizing: border-box
+  text-align: center
+  section
+    @extend %section
+
+  .date
+    text-transform: capitalize
+
+  .hour
+    justify-content: flex-end
+
+  .logout .btnLogout
+    background-color: transparent
+    border: 1px solid transparent
+    box-sizing: border-box
+
+.contentBtnLogout
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: 0.5rem
+  box-sizing: border-box
+  flex-grow: 1
+  flex-shrink: 1
+  flex-basis: auto
+
+.section
+  @extend %section
+
+.btnHeader
+  box-shadow: 0 2px 3px 0 rgba(51, 61, 95, 0.1)
+  border: solid 1px #e1e6ec
+  background-color: #fff
+  box-sizing: border-box
+  font-family: $fontFamilyBold
+  label, a
+    font-family: $fontFamilyBold
+  &:hover, &:hover label
+    cursor: pointer
+    color: $purple
+
+.notSection
+  padding: 0 !important
+
+.notHasWorkstationSelected:hover
+  cursor: default
+  color: $darkBlue
+
+.workstationSelected
+  border: 1px solid transparent
+  background-color: transparent
+
+@media screen and ( max-width: 625px  )
+  .topBar
+    flex-wrap: wrap

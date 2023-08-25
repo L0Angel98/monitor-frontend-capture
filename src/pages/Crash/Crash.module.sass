@@ -1,0 +1,145 @@
+@import ../../assets/sass/modules/_colors
+
+@mixin barLogo($heigh, $color)
+  display: block
+  height: $heigh
+  width: 50px
+  background-color: $color
+  border-radius: 5px
+
+.backgroundCrash
+  height: 100vh
+  width: 100vw
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+
+.title
+  font-size: 40px
+
+.message
+  font-size: 20px
+
+.bar1
+  @include barLogo($heigh: 60px , $color: $green )
+  animation: bar1 2s 1s forwards ease-in-out, bar1Eye 1.2s 3s 1 forwards alternate linear
+
+.bar2
+  @include barLogo($heigh: 80px , $color: $pink )
+  animation: bar2 2s 1s forwards ease-in-out, bar2Eye 1.2s 3s 1 forwards alternate linear
+.bar3
+  @include barLogo($heigh: 100px , $color: $blue )
+  animation: bar3 2s 1s forwards, bar3Mouth 2s 3s 0.6 alternate linear
+  z-index: 3
+
+.screen
+  display: flex
+  align-items: flex-end
+  position: relative
+  background-color: $disabledBackgroundColor
+  border-radius: 5px
+  padding: 40px 20px
+  height: 100%
+  box-sizing: border-box
+  gap: 20px
+  justify-content: center
+.monitor
+  background-color: $grayFontColor
+  padding: 10px
+  border-radius: 5px
+  position: relative
+  width: 300px
+  height: 200px
+  margin-bottom: 80px
+  &::before
+    content: ""
+    height: 80px
+    width: 20px
+    position: absolute
+    bottom: -75px
+    left: 50%
+    transform: translateX(-50%)
+    z-index: 2
+    background-color: $grayFontColor
+    border-radius: 5px
+  &::after
+    content: ""
+    height: 10px
+    width: 200px
+    position: absolute
+    bottom: -75px
+    left: 50%
+    transform: translateX(-50%)
+    z-index: 2
+    background-color: $grayFontColor
+    border-radius: 5px
+
+@keyframes bar1
+  0%
+    transform: translateY(0)
+
+  100%
+    transform: translateY(-50px)
+
+@keyframes bar1Eye
+  0%
+    height: 60px
+
+  50%
+    height: 10px
+
+  100%
+    height: 60px
+
+@keyframes bar2
+  0%
+    transform: translate(0)
+
+  100%
+    transform: translateY(-50px)
+
+@keyframes bar2Eye
+  0%
+    height: 80px
+
+  50%
+    height: 10px
+
+  100%
+    height: 80px
+
+$positionBar3: 90%
+$heightMouth: 40px
+
+@keyframes bar3
+  0%
+    transform: rotate(0deg) translate(0px, 20px)
+
+  50%
+    transform: translate($heightMouth, $positionBar3)
+
+  100%
+    border-radius: 50%
+    transform: rotate(90deg) translate($heightMouth, $positionBar3)
+
+@keyframes bar3Mouth
+  0%
+    border-radius: 50%
+    width: 50px
+    transform: rotate(90deg) translate($heightMouth, $positionBar3)
+
+  30%
+    border-radius: 50%
+    width: 20px
+    transform: rotate(92deg) translate($heightMouth, $positionBar3)
+
+  60%
+    width: 50px
+    border-radius: 50%
+    transform: rotate(90deg) translate($heightMouth, $positionBar3)
+
+  100%
+    width: 20px
+    border-radius: 50%
+    transform: rotate(88deg) translate($heightMouth, $positionBar3)

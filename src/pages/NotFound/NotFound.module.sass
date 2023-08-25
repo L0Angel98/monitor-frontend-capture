@@ -1,0 +1,135 @@
+@import ../../assets/sass/modules/_colors
+
+%barsCancel
+  display: block
+  content: ""
+  height: 10px
+  width: 180px
+  background-color: $red
+  border-radius: 5px
+  position: absolute
+  left: 50%
+  bottom: 65px
+  z-index: 2
+  opacity: 0
+
+@mixin barLogo($heigh, $color)
+  display: block
+  height: $heigh
+  width: 50px
+  background-color: $color
+  border-radius: 5px
+  animation: enterBar 1s forwards
+  opacity: 0
+  z-index: 1
+
+@mixin cancelAnimation($degs, $animationName)
+  transform: translateX(-50%) rotate($degs)
+  animation: $animationName 1s forwards
+  animation-delay: 1s
+
+.backgroundNotFound
+  height: 100%
+  width: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  flex-wrap: wrap
+
+.title
+  font-size: 40px
+
+.message
+  font-size: 20px
+
+.topBar, .bottomBar
+  @extend %barsCancel
+
+.topBar
+  @include cancelAnimation($degs: 45deg, $animationName: noSignalTopBar )
+
+.bottomBar
+  @include cancelAnimation($degs: -45deg, $animationName: noSignalBottomBar )
+
+.bar1
+  @include barLogo($heigh: 60px , $color: $green )
+
+.bar2
+  @include barLogo($heigh: 80px , $color: $pink )
+  animation-delay: 0.25s
+
+.bar3
+  @include barLogo($heigh: 100px , $color: $blue )
+  animation-delay: 0.5s
+
+.screen
+  display: flex
+  align-items: flex-end
+  gap: 0.5rem
+  position: relative
+  background-color: $disabledBackgroundColor
+  border-radius: 5px
+  padding: 20px
+
+.monitor
+  background-color: $grayFontColor
+  padding: 10px
+  border-radius: 5px
+  position: relative
+  max-width: 200px
+  margin-bottom: 40px
+  &::before
+    content: ""
+    height: 50px
+    width: 20px
+    position: absolute
+    bottom: -40px
+    left: 50%
+    transform: translateX(-50%)
+    z-index: 2
+    background-color: $grayFontColor
+    border-radius: 5px
+  &::after
+    content: ""
+    height: 10px
+    width: 150px
+    position: absolute
+    bottom: -40px
+    left: 50%
+    transform: translateX(-50%)
+    z-index: 2
+    background-color: $grayFontColor
+    border-radius: 5px
+
+@keyframes enterBar
+  from
+    transform: translateY(-200%)
+    opacity: 1
+  to
+    transform: translateY(0)
+    opacity: 1
+
+@keyframes noSignalTopBar
+  0%
+    transform: translate(-50%, -100vh) rotate(0deg)
+    opacity: 1
+
+  50%
+    transform: translate(-50%, 0) rotate(13deg)
+
+  100%
+    transform: translate(-50%, 0) rotate(45deg)
+    opacity: 1
+
+@keyframes noSignalBottomBar
+  0%
+    transform: translate(-50%, -100vh) rotate(0deg)
+    opacity: 1
+
+  50%
+    transform: translate(-50%, 0) rotate(-13deg)
+
+  100%
+    transform: translate(-50%, 0) rotate(-45deg)
+    opacity: 1

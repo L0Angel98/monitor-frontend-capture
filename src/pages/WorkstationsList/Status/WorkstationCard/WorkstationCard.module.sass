@@ -1,0 +1,73 @@
+@import ../../../../assets/sass/modules/_fonts
+@import ../../../../assets/sass/modules/_colors
+
+@mixin colorStatus($primary, $secundary)
+  color: $primary
+  border: solid 1.5px $primary
+  background-color: $secundary
+
+div[status="available"]
+  border-left: solid 6px #50e3c2
+
+div[status="unavailable"]
+  border-left: solid 6px #ffabab
+
+div[status="available"]:hover
+  cursor: pointer
+  transform: scale(1.1)
+
+div[status="unavailable"]:hover
+  cursor: default
+
+.workstationCard
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  padding: 0.7rem 1rem 1.5rem 1rem
+  width: 300px
+  height: 185px
+  flex-grow: 0
+  border-radius: 5px
+  box-shadow: 0 2px 3px 0 rgba(51, 61, 95, 0.15)
+  background-color: #fff
+  box-sizing: border-box
+  transition: transform 0.3s
+
+  .name
+    margin: 0
+    padding: 0
+    font-family: $fontFamilyBold
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+  .separator
+    content: ""
+    width: 100%
+    height: 1px
+    flex-grow: 0
+    background-color: #e1e6ec
+    width: 100%
+
+  .cardFooter
+    display: flex
+    align-items: center
+    gap: 1rem
+    span:first-child
+      @include colorStatus($primary:#ffabab,$secundary: #fff1f1)
+    span[status="available"]
+      @include colorStatus($primary: #50e3c2 , $secundary: rgba(80, 227, 194, 0.1))
+
+.status
+  font-family: $fontFamilyBold
+  padding: 0 0.5rem
+  border-radius: 15px
+  height: 25px
+  display: grid
+  place-content: center
+
+.linkWorkstation
+  text-decoration: none
+  padding: 0
+  margin: 0
+  border: none
